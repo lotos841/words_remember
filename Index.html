@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <ul class="header-menu">
+                    <li class="menu-link"><a href="">Dictionary</a></li>
+                    <li class="menu-link"><a href="">Words</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="Words">
+        <div class="container">
+            <div class="words-content">
+                 <div class="words-menu">
+                    <div class="add_word_block">
+                        <a href="" class="add_new_word" id="add_new_word_link">
+                            <img class="add_new_word_icon" src="./assets/add-circle-svgrepo-com.svg" alt="">
+                            <P>NEW</P>
+                        </a>
+                        <div id="add_new_word_modal" class="modal">
+                            <div class="modal-content">
+                              <span class="close"></span>
+                              <div>
+                                <p>Word</p>
+                                <input class="word_input" type="text" id="add_word_title">
+                              </div>
+                              <div>
+                                <p>Translate</p>
+                                <input class="word_input" type="text" id="add_word_translate">
+                              </div>
+                              <button class="add_word_button" id="add_new_word_button">ADD</button>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="word-links" id="word_links">
+                    </div>
+                 </div>
+                 <div class="word-content">
+                    <h3 class="word-title" id="word_title">cлово</h3>
+                    <p class="word-translate" id="word_translate">перевод</p>
+                 </div>
+            </div>
+         </div>
+    </section>
+</body>
+<script src="./js/words.js"></script>
+</html>
