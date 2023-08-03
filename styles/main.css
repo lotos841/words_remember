@@ -73,10 +73,14 @@ header {
     padding: 15px 0px;
     border: solid var(--main-border);
     border-width: 0px 3px 3px 3px;
+    border-radius: 0px 0px 15px 15px;
     display: grid;
     grid-template-columns: 1fr 7fr; }
     .Words .words-content .words-menu {
-      max-width: 300px;
+      max-height: 80vh;
+      width: 130px;
+      overflow-x: hidden;
+      overflow-y: auto;
       border-right: 3px solid var(--main-border);
       font-size: 18px; }
       .Words .words-content .words-menu .add_word_block .add_new_word {
@@ -152,7 +156,8 @@ header {
   border-radius: 10px;
   text-align: center;
   font-size: 18px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  background: linear-gradient(135deg, #0bff71 20%, #ffffff 70%); }
 
 .add_word_button {
   margin: 30px;
@@ -162,6 +167,6 @@ header {
 .add_new_word_icon {
   width: 40px;
   border-radius: 50%;
-  background-color: white; }
+  background: linear-gradient(135deg, #0bff71 20%, #ffffff 70%); }
 
 /*# sourceMappingURL=main.css.map */
