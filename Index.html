@@ -26,12 +26,11 @@
                  <div class="words-menu">
                     <div class="add_word_block">
                         <a href="" class="add_new_word" id="add_new_word_link">
-                            <img class="add_new_word_icon" src="./assets/add-circle-svgrepo-com.svg" alt="">
+                            <img class="add_new_word_icon" src="./assets/add.svg" alt="">
                             <P>NEW</P>
                         </a>
                         <div id="add_new_word_modal" class="modal">
                             <div class="modal-content">
-                              <span class="close"></span>
                               <div>
                                 <p>Word</p>
                                 <input class="word_input" type="text" id="add_word_title">
@@ -40,17 +39,36 @@
                                 <p>Translate</p>
                                 <input class="word_input" type="text" id="add_word_translate">
                               </div>
-                              <a class="add_word_button" id="add_new_word_button"><img class="add_new_word_icon" src="./assets/add-circle-svgrepo-com.svg" alt=""></a>
+                              <a class="add_word_button" id="add_new_word_button"><img class="add_new_word_icon" src="./assets/add.svg" alt=""></a>
                             </div>
                           </div>
                     </div>
                     <div class="word-links" id="word_links">
                     </div>
                  </div>
-                 <div class="word-content">
-                    <h3 class="word-title" id="word_title">cлово</h3>
-                    <p class="word-translate" id="word_translate">перевод</p>
-                 </div>
+                <main class="main">
+                    <div class="word-content">
+                        <h3 class="word-title" id="word_title"></h3>
+                        <p class="word-translate" id="word_translate"></p>
+                     </div>
+                     <div class="word-settings">
+                        <a href="" class="word-setting delete-word" id="change-word-button"><img src="./assets/pen.svg" class="icon" alt=""></a>
+                        <a href="" class="word-setting change-word" id="delete-word-button"><img src="./assets/corss.svg" class="icon" alt=""></a>
+                        <div class="word-change-modal" id="word-change-modal">
+                            <div class="word-change-modal-content">
+                                <div>
+                                  <p>Word</p>
+                                  <input class="word_input" type="text" id="change_word_title">
+                                </div>
+                                <div>
+                                  <p>Translate</p>
+                                  <input class="word_input" type="text" id="change_word_translate">
+                                </div>
+                                <a class="add_word_button" id="change-word-button-in-modal"><img class="add_new_word_icon" src="./assets/pen.svg" alt=""></a>
+                            </div>
+                        </div>
+                     </div>
+                </main>
             </div>
          </div>
     </section>

@@ -5,6 +5,12 @@ function addWord(word, translate) {
     wordPack.set(word, translate);
 }
 
+function deleteWord(word) {
+    localStorage.removeItem(word);
+    get_word_from_localStorage()
+    showWords();
+}
+
 function getWords(wordsPack) {
     for (const iterator of wordsPack.keys()) {
         console.log(iterator)
@@ -12,15 +18,16 @@ function getWords(wordsPack) {
 }
 
 function get_word_from_localStorage() {
+
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        // console.log(`${key}: ${localStorage.getItem(key)}`);
         addWord(key, localStorage.getItem(key));
     }
 }
 
 function showWords() {
     word_links.innerHTML = '';
+    get_word_from_localStorage()
     for (const iterator of wordPack.keys()) {
         let word = document.createElement('a')
         word.classList.add('word-link');
@@ -46,25 +53,61 @@ let word_translate = document.getElementById("word_translate");
 
 let add_new_word_link = document.getElementById("add_new_word_link")
 let add_word_modal = document.getElementById("add_new_word_modal")
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 let add_word_title = document.getElementById("add_word_title");
 let add_word_translate = document.getElementById("add_word_translate");
 let add_new_word_button = document.getElementById("add_new_word_button");
 
+let delete_word_button = document.getElementById("delete-word-button")
+let chage_word_button = document.getElementById("change-word-button")
+let word_change_modal = document.getElementById("word-change-modal")
+let span2 = document.getElementsByClassName("close")[1];
+let change_word_title = document.getElementById("change_word_title")
+let change_word_translate = document.getElementById("change_word_translate")
+let change_word_button_in_modal = document.getElementById('change-word-button-in-modal')
+
+delete_word_button.addEventListener('click', e => {
+    deleteWord(word_title.textContent)
+})
+
+chage_word_button.addEventListener('click', e => {
+    word_change_modal.style.display = "block"; 
+    change_word_title.value = word_title.textContent;
+    change_word_translate.value = word_translate.textContent;
+    e.preventDefault();
+})
+
+change_word_button_in_modal.onclick = function(e) {
+    let old_word = word_title.textContent;
+    changeWord(old_word,change_word_title.value, change_word_translate.value);
+    word_change_modal.style.display = "none";
+    location.reload()
+}
+
+function changeWord(old_word,word, translate) {
+    
+    if (old_word != word) {
+        localStorage.removeItem(old_word)
+    }
+
+    localStorage.setItem(word, translate)
+    word_title.textContent = word
+    word_translate.textContent = translate;
+    showWords()
+}
 
 add_new_word_link.onclick = function(e) {
     add_word_modal.style.display = "block";
     e.preventDefault();
   }
   
-span.onclick = function() {
-    add_word_modal.style.display = "none";
-  }
-  
 window.onclick = function(event) {
     if (event.target == add_word_modal) {
         add_word_modal.style.display = "none";
+    }
+    if (event.target == word_change_modal) {
+        word_change_modal.style.display = "none";
     }
 }
 
