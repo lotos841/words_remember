@@ -61,8 +61,7 @@ function showWord(word) {
 
 delete_word_button.addEventListener('click', e => {
     deleteWord(word_title.textContent)
-    showWords()
-    e.preventDefault()
+    
 })
 
 chage_word_button.addEventListener('click', e => {
