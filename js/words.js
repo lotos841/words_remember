@@ -1,20 +1,31 @@
 
 let wordPack = new Map();
 
+let word_links = document.getElementById("word_links");
+
+let word_title = document.getElementById("word_title");
+let word_translate = document.getElementById("word_translate");
+
+let add_new_word_link = document.getElementById("add_new_word_link")
+let add_word_modal = document.getElementById("add_new_word_modal")
+
+let add_word_title = document.getElementById("add_word_title");
+let add_word_translate = document.getElementById("add_word_translate");
+let add_new_word_button = document.getElementById("add_new_word_button");
+
+let delete_word_button = document.getElementById("delete-word-button")
+let chage_word_button = document.getElementById("change-word-button")
+let word_change_modal = document.getElementById("word-change-modal")
+let change_word_title = document.getElementById("change_word_title")
+let change_word_translate = document.getElementById("change_word_translate")
+let change_word_button_in_modal = document.getElementById('change-word-button-in-modal')
+
 function addWord(word, translate) {
     wordPack.set(word, translate);
 }
 
 function deleteWord(word) {
     localStorage.removeItem(word);
-    get_word_from_localStorage()
-    showWords();
-}
-
-function getWords(wordsPack) {
-    for (const iterator of wordsPack.keys()) {
-        console.log(iterator)
-    }
 }
 
 function get_word_from_localStorage() {
@@ -46,29 +57,12 @@ function showWord(word) {
     word_translate.textContent = wordPack.get(word);
 }
 
-let word_links = document.getElementById("word_links");
 
-let word_title = document.getElementById("word_title");
-let word_translate = document.getElementById("word_translate");
-
-let add_new_word_link = document.getElementById("add_new_word_link")
-let add_word_modal = document.getElementById("add_new_word_modal")
-let span = document.getElementsByClassName("close")[0];
-
-let add_word_title = document.getElementById("add_word_title");
-let add_word_translate = document.getElementById("add_word_translate");
-let add_new_word_button = document.getElementById("add_new_word_button");
-
-let delete_word_button = document.getElementById("delete-word-button")
-let chage_word_button = document.getElementById("change-word-button")
-let word_change_modal = document.getElementById("word-change-modal")
-let span2 = document.getElementsByClassName("close")[1];
-let change_word_title = document.getElementById("change_word_title")
-let change_word_translate = document.getElementById("change_word_translate")
-let change_word_button_in_modal = document.getElementById('change-word-button-in-modal')
 
 delete_word_button.addEventListener('click', e => {
     deleteWord(word_title.textContent)
+    showWords()
+    e.preventDefault()
 })
 
 chage_word_button.addEventListener('click', e => {
@@ -114,12 +108,10 @@ window.onclick = function(event) {
 add_new_word_button.onclick = () => {
     addWord(add_word_title.value, add_word_translate.value);
     localStorage.setItem(add_word_title.value,add_word_translate.value)
-    get_word_from_localStorage()
     showWords()
     add_word_title.value = "";
     add_word_translate.value = ""
     add_word_modal.style.display = "none";
 }
 
-get_word_from_localStorage()
 showWords();
